@@ -1,0 +1,6 @@
+@InvNexus.SalesService_HostAddress = http://localhost:5159
+
+GET {{InvNexus.SalesService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

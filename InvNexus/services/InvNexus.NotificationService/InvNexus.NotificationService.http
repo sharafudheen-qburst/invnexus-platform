@@ -1,0 +1,6 @@
+@InvNexus.NotificationService_HostAddress = http://localhost:5085
+
+GET {{InvNexus.NotificationService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

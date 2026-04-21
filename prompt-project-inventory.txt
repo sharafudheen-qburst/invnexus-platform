@@ -1,0 +1,79 @@
+Build InvNexus.InventoryService using .NET Web API with Clean Architecture and CQRS.
+
+Architecture:
+- Single project with folders:
+  - Presentation
+  - Application
+  - Domain
+  - Infrastructure
+- Use EF Core with Code First
+- Use SQL Server or LocalDB
+- Follow the same style as AuthService, but apply CQRS here
+
+Purpose:
+This service manages product master data and current stock for the first version of InvNexus.
+
+Entities:
+1. Product
+- Id (Guid)
+- Name
+- Price (decimal)
+- IsActive (bool)
+
+2. Stock
+- Id (Guid)
+- ProductId (Guid)
+- Quantity (int)
+
+Rules:
+- Each Product should have one Stock record
+- When a Product is created, initialize Stock with Quantity = 0
+- Product name is required
+- Price must be >= 0
+- Quantity cannot be negative in normal create/update flow
+
+CQRS requirements:
+Commands:
+- CreateProductCommand
+- UpdateStockCommand
+
+Queries:
+- GetProductsQuery
+- GetStockByProductIdQuery
+
+APIs:
+- POST /api/products
+  - create a product
+  - also create initial stock record with zero quantity
+
+- GET /api/products
+  - return product list
+
+- GET /api/stock/{productId}
+  - return current stock for a product
+
+Technical requirements:
+- Use DbContext with Product and Stock tables
+- Add EF Core migration for initial schema
+- Apply migration
+- Use DTOs for request/response
+- Use repository or service abstraction if needed, but keep it simple
+- Use async/await
+- Add dependency injection
+- Add basic validation
+- Keep code clean and readable
+
+Do not add now:
+- warehouse
+- stock transfer
+- stock history
+- messaging
+- notifications
+- advanced reporting
+
+Output:
+- working InventoryService
+- clean folder structure
+- migration created
+- DB updated
+- APIs ready for testing

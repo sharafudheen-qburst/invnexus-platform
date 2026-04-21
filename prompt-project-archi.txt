@@ -1,0 +1,45 @@
+Build a .NET Web API microservice for InvNexus using Clean Architecture.
+
+Architecture:
+- Use folder/layer separation:
+  - Presentation
+  - Application
+  - Domain
+  - Infrastructure
+- Keep the service as a single project with these folders
+- Use EF Core with Code First
+- Use SQL Server / LocalDB
+- Keep code simple, clean, and interview-ready
+
+Requirements:
+- Add DbContext
+- Add entity models in Domain
+- Add DTOs, interfaces, and service/handler logic in Application
+- Add EF Core persistence and repository implementations in Infrastructure
+- Add Controllers in Presentation
+- Configure dependency injection cleanly
+- Add migration support
+- Keep APIs RESTful
+- Use async/await
+- Add basic validation
+- Return clean response models
+
+CQRS:
+- Use CQRS pattern where it makes sense
+- Separate Commands and Queries
+- Organize Application layer into:
+  - Commands
+  - Queries
+  - DTOs
+  - Interfaces
+
+Output expectation:
+- production-style clean structure
+- minimal but working APIs
+- easy to extend later
+- no unnecessary complexity
+
+Important:
+- Do not add extra enterprise features unless requested
+- Keep naming consistent with InvNexus
+- Keep code easy to explain in interview
