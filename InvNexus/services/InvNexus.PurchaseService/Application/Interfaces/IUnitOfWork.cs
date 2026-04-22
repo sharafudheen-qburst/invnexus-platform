@@ -1,0 +1,6 @@
+namespace InvNexus.PurchaseService.Application.Interfaces;
+
+public interface IUnitOfWork
+{
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+}
