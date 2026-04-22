@@ -52,3 +52,5 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+/.vs/slnx.sqlite
+/InvNexus/ui/invnexus-webui/.angular/cache/18.2.21

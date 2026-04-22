@@ -17,6 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvNexus.SearchService", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvNexus.AuthService", "services\InvNexus.AuthService\InvNexus.AuthService.csproj", "{7C4A02DF-EAAB-41E2-B41A-18BBA281C778}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,5 +115,8 @@ Global
 		{D4C3FD9C-C2D0-43EE-9316-4DB7CC6BBC00} = {5854FF58-B8C5-05C6-5BF2-ACE42193F22B}
 		{E9DD9092-A3C1-46C1-B0FD-A3309A76E7C8} = {5854FF58-B8C5-05C6-5BF2-ACE42193F22B}
 		{7C4A02DF-EAAB-41E2-B41A-18BBA281C778} = {5854FF58-B8C5-05C6-5BF2-ACE42193F22B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CA63CB8-0BFA-475D-832A-F10957DCEC0D}
 	EndGlobalSection
 EndGlobal

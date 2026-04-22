@@ -1,15 +1,18 @@
 using InvNexus.InventoryService.Application.Commands.DeleteProduct;
+using InvNexus.InventoryService.Application.Commands.DeleteProduct;
 using InvNexus.InventoryService.Application.Commands.UpdateProduct;
 using InvNexus.InventoryService.Application.Commands.CreateProduct;
 using InvNexus.InventoryService.Application.DTOs;
 using InvNexus.InventoryService.Application.Mediator;
 using InvNexus.InventoryService.Application.Queries.GetProductById;
 using InvNexus.InventoryService.Application.Queries.GetProducts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvNexus.InventoryService.Presentation.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/products")]
 public class ProductsController(
     ICommandMediator commandMediator,

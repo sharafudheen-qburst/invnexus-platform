@@ -1,11 +1,13 @@
 using InvNexus.InventoryService.Application.DTOs;
 using InvNexus.InventoryService.Application.Mediator;
 using InvNexus.InventoryService.Application.Queries.GetStockByProductId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvNexus.InventoryService.Presentation.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/stock")]
 public class StockController(
     IQueryMediator queryMediator) : ControllerBase
