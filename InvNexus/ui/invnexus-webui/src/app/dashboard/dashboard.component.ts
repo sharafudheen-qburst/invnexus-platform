@@ -20,6 +20,16 @@ import { RouterLink } from '@angular/router';
           <h3 style="margin-top:0;">Stock</h3>
           <p>View current stock by product id.</p>
         </a>
+
+        <a class="card" routerLink="/purchase">
+          <h3 style="margin-top:0;">Purchase Orders</h3>
+          <p>Create, list, and receive purchase orders.</p>
+        </a>
+
+        <a class="card" routerLink="/sales">
+          <h3 style="margin-top:0;">Sales Orders</h3>
+          <p>Create, list, and complete sales orders.</p>
+        </a>
       </div>
     </section>
   `
