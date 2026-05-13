@@ -1,61 +1,44 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-export interface LoginRequest {
+interface LoginRequest {
   email: string;
   password: string;
 }
 
-export interface LoginResponse {
+interface LoginResponse {
   token: string;
-  user?: any;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = `${environment.apiBaseUrl}/auth`;
-  private tokenKey = 'auth_token';
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
+  private readonly tokenStorageKey = 'invnexus_token';
+  private readonly baseUrl = environment.authServiceUrl;
 
-  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+  constructor(private readonly http: HttpClient) {}
 
-  constructor(private http: HttpClient) {}
+  login(email: string, password: string): Observable<void> {
+    const body: LoginRequest = { email, password };
 
-  login(credentials: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, credentials).pipe(
-      tap(response => {
-        this.setToken(response.token);
-        this.isAuthenticatedSubject.next(true);
-      })
-    );
-  }
-
-  logout(): void {
-    this.removeToken();
-    this.isAuthenticatedSubject.next(false);
-  }
-
-  setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
+    return this.http
+      .post<LoginResponse>(`${this.baseUrl}/api/auth/login`, body)
+      .pipe(
+        tap((response) => localStorage.setItem(this.tokenStorageKey, response.token)),
+        map(() => void 0)
+      );
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
-  }
-
-  hasToken(): boolean {
-    return !!this.getToken();
-  }
-
-  removeToken(): void {
-    localStorage.removeItem(this.tokenKey);
+    return localStorage.getItem(this.tokenStorageKey);
   }
 
   isAuthenticated(): boolean {
-    return this.hasToken();
+    return !!this.getToken();
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.tokenStorageKey);
   }
 }

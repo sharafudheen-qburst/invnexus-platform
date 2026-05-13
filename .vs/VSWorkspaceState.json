@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\InvNexus",
+    "\\InvNexus\\services\\InvNexus.NotificationService",
+    "\\InvNexus\\services\\InvNexus.SalesService",
+    "\\InvNexus\\services\\InvNexus.SalesService\\Application",
+    "\\InvNexus\\services\\InvNexus.SalesService\\Application\\Mediator",
+    "\\InvNexus\\services\\InvNexus.SalesService\\Presentation",
+    "\\InvNexus\\services\\InvNexus.SalesService\\Presentation\\Controllers",
+    "\\InvNexus\\ui",
+    "\\InvNexus\\ui\\invnexus-webui",
+    "\\InvNexus\\ui\\invnexus-webui\\src"
+  ],
+  "SelectedNode": "\\InvNexus\\ui\\invnexus-webui\\src\\styles.css",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://api.invnexus.com/api'
+  authServiceUrl: 'https://localhost:7182',
+  inventoryServiceUrl: 'https://localhost:7073'
 };

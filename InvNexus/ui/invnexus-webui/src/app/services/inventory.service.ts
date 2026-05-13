@@ -3,58 +3,39 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-export interface Product {
-  id?: string;
+export interface ProductRequest {
   name: string;
   price: number;
   isActive: boolean;
 }
 
-export interface Stock {
+export interface ProductResponse {
+  id: string;
+  name: string;
+  price: number;
+  isActive: boolean;
+}
+
+export interface StockResponse {
   productId: string;
-  productName: string;
   quantity: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class InventoryService {
-  private apiUrl = `${environment.apiBaseUrl}/inventory`;
+  private readonly baseUrl = environment.inventoryServiceUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-  // Product endpoints
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}/products`);
+  createProduct(payload: ProductRequest): Observable<ProductResponse> {
+    return this.http.post<ProductResponse>(`${this.baseUrl}/api/products`, payload);
   }
 
-  getProduct(id: string): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
+  getProducts(): Observable<ProductResponse[]> {
+    return this.http.get<ProductResponse[]>(`${this.baseUrl}/api/products`);
   }
 
-  createProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.apiUrl}/products`, product);
-  }
-
-  updateProduct(id: string, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}/products/${id}`, product);
-  }
-
-  deleteProduct(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/products/${id}`);
-  }
-
-  // Stock endpoints
-  getStock(): Observable<Stock[]> {
-    return this.http.get<Stock[]>(`${this.apiUrl}/stock`);
-  }
-
-  getStockByProduct(productId: string): Observable<Stock> {
-    return this.http.get<Stock>(`${this.apiUrl}/stock/${productId}`);
-  }
-
-  updateStock(productId: string, quantity: number): Observable<Stock> {
-    return this.http.put<Stock>(`${this.apiUrl}/stock/${productId}`, { quantity });
+  getStockByProductId(productId: string): Observable<StockResponse> {
+    return this.http.get<StockResponse>(`${this.baseUrl}/api/stock/${productId}`);
   }
 }

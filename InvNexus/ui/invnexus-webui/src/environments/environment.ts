@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:5000/api'
+  authServiceUrl: 'http://localhost:5052',
+  inventoryServiceUrl: 'http://localhost:5097'
 };

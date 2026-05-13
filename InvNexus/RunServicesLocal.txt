@@ -1,0 +1,6 @@
+dotnet run --project services/InvNexus.AuthService/InvNexus.AuthService.csproj
+dotnet run --project services/InvNexus.InventoryService/InvNexus.InventoryService.csproj
+dotnet run --project services/InvNexus.PurchaseService/InvNexus.PurchaseService.csproj
+dotnet run --project services/InvNexus.SalesService/InvNexus.SalesService.csproj
+dotnet run --project services/InvNexus.NotificationService/InvNexus.NotificationService.csproj
+dotnet run --project services/InvNexus.SearchService/InvNexus.SearchService.csproj
